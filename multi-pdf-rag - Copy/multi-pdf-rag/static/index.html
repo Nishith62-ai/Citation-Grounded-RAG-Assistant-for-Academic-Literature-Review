@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-PDF Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div>
+        <h1>PDF Intelligence</h1>
+        <span>Multi-document RAG</span>
+      </div>
+    </div>
+
+    <div class="upload-card" id="drop" tabindex="0">
+      <div class="upload-icon">↑</div>
+      <strong>Upload documents</strong>
+      <span>Drag & drop PDFs here</span>
+      <button type="button" id="browse">Choose PDF files</button>
+      <input type="file" id="file" accept=".pdf,application/pdf" multiple hidden>
+    </div>
+
+    <div class="status-row">
+      <span class="status-dot"></span>
+      <span id="upload-status">RAG engine ready</span>
+    </div>
+
+    <div class="section-title">
+      <span>Your Library</span>
+      <span class="count" id="doc-count">0</span>
+    </div>
+
+    <ul id="docs" class="docs"></ul>
+
+    <div class="sidebar-footer">
+      <span class="online-dot"></span>
+      RAG Engine Online
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h2>Ask your documents</h2>
+        <p>Get grounded answers from your uploaded PDF collection.</p>
+      </div>
+      <div class="engine-badge"><span></span> AI Retrieval Active</div>
+    </header>
+
+    <section class="chat-wrap">
+      <div id="log" class="log" aria-live="polite">
+        <div class="welcome" id="empty">
+          <div class="welcome-icon">✦</div>
+          <h3>What would you like to know?</h3>
+          <p>Upload one or more PDFs and ask questions across all of them.</p>
+          <div class="examples">
+            <button data-question="Summarize the main points of these documents">Summarize my documents</button>
+            <button data-question="What are the key findings?">Find the key findings</button>
+            <button data-question="Compare the important information across the documents">Compare the documents</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="composer-area">
+      <div class="composer">
+        <textarea id="q" rows="1" placeholder="Ask anything about your PDFs..."></textarea>
+        <button id="send" aria-label="Send question">➤</button>
+      </div>
+      <div class="composer-hint">Answers are generated from your uploaded documents • Press Enter to ask</div>
+    </div>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
